@@ -2,8 +2,6 @@
 
 Це базовий **API** на основі **Django REST Framework** із налаштованою базою даних **PostgreSQL** та підключеною аутентифікацією (*JWT*).
 
----
-
 ## **Вимоги**
 
 Для запуску проєкту вам знадобиться:
@@ -12,8 +10,6 @@
 - **PostgreSQL**;
 - Віртуальне середовище **Python** (`venv` або аналог);
 - Пакети з `requirements.txt`.
-
----
 
 ## Інструкція з налаштування
 
@@ -48,8 +44,6 @@ pip install -r requirements.txt
 3. Заповніть файл `.env` вашими даними для підключення до бази **PostgreSQL**.
 4. Переконайтесь, що у вас запущений **PostgreSQL** і створена база даних.
 
----
-
 ## Запуск проєкту
 
 ### 1. Виконання міграцій
@@ -77,8 +71,6 @@ python manage.py runserver
 Сервер буде доступний за адресою:
 `http://127.0.0.1:8000`.
 
----
-
 ## Використання API
 
 ### 1. Отримання токену (JWT)
@@ -87,8 +79,8 @@ python manage.py runserver
 
 ```
 {
-  "username": "your_username",
-  "password": "your_password"
+    "username": "your_username",
+    "password": "your_password"
 }
 ```
 
@@ -96,8 +88,8 @@ python manage.py runserver
 
 ```
 {
-  "refresh": "refresh_token_here",
-  "access": "access_token_here"
+    "refresh": "refresh_token_here",
+    "access": "access_token_here"
 }
 ```
 
