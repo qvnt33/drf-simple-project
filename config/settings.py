@@ -35,6 +35,8 @@ REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.IsAuthenticated',  # Доступ тільки для авторизованих користувачів
     ],
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',  # Пагінація
+    'PAGE_SIZE': 10,  # Кількість об'єктів на сторінку
 }
 
 SIMPLE_JWT = {
