@@ -1,5 +1,6 @@
 from .models import Article
 from .serializers import ArticleSerializer
+from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import viewsets
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
 
@@ -21,3 +22,6 @@ class ArticleViewSet(viewsets.ModelViewSet):
     queryset = Article.objects.all()
     serializer_class = ArticleSerializer
     permission_classes = [IsAuthenticatedOrReadOnly]
+
+    filter_backends: list = [DjangoFilterBackend]  # Фільтрація
+    filterset_fields: list[str] = ['article']  # Поля для фільтрації

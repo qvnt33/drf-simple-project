@@ -35,6 +35,9 @@ REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.IsAuthenticated',  # Доступ тільки для авторизованих користувачів
     ],
+    'DEFAULT_FILTER_BACKENDS': [
+        'django_filters.rest_framework.DjangoFilterBackend',  # Фільтрація
+    ],
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',  # Пагінація
     'PAGE_SIZE': 10,  # Кількість об'єктів на сторінку
 }
@@ -55,8 +58,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'rest_framework',
-    'api',
+    'rest_framework',  # Підключення DRF
+    'api',  # Підключення нового додатку
+    'django_filters',  # Фільтрація
 ]
 
 MIDDLEWARE = [
