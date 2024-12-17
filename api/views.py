@@ -2,6 +2,7 @@ from .models import Article
 from .serializers import ArticleSerializer
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import viewsets
+from rest_framework.filters import OrderingFilter
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
 
 
@@ -23,5 +24,11 @@ class ArticleViewSet(viewsets.ModelViewSet):
     serializer_class = ArticleSerializer
     permission_classes = [IsAuthenticatedOrReadOnly]
 
-    filter_backends: list = [DjangoFilterBackend]  # Фільтрація
+    # Додавання фільтрації та сортування
+    filter_backends: list = [DjangoFilterBackend, OrderingFilter]
     filterset_fields: list[str] = ['article']  # Поля для фільтрації
+    ordering_fields: str = '__all__'  # Сортування за всіма полями
+    ordering: list[str] = ['created_at']  # Сортування за замовчуванням
+
+    # ordering_fields = ['created_at', 'title']  # Поля, доступні для сортування
+    # ordering = ['-created_at']  # Сортування за замовчуванням у зворотньому порядку
